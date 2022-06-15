@@ -4,11 +4,13 @@
 # Updated by afiniel-tech for yiimpool use...
 #####################################################
 
+
+# Load functions
 source /etc/functions.sh
 cd ~/yiimpool/install
 clear
 
-# Get logged in user name
+# Whoami
 whoami=`whoami`
 echo -e " Modifying existing user $whoami for yiimpool support."
 sudo usermod -aG sudo ${whoami}

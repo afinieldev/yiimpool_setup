@@ -6,30 +6,38 @@
 # Updated by afiniel-tech for yiimpool use...
 #####################################################
 
-# Recall the last settings used if we're running this a second time.
+# Checks if /etc/yiimpool.conf exist.
 if [ -f /etc/yiimpool.conf ]; then
-# Load the old .conf file to get existing configuration options loaded
-# into variables with a DEFAULT_ prefix.
+
+# move it to /etc,                            And if exist mv it to tmp and rename it.
 cat /etc/yiimpool.conf | sed s/^/DEFAULT_/ > /tmp/yiimpool.prev.conf
+
+# And then remove..
 source /tmp/yiimpool.prev.conf
 rm -f /tmp/yiimpool.prev.conf
+
 else
 FIRST_TIME_SETUP=1
 fi
 
 if [[ ("$FIRST_TIME_SETUP" == "1") ]]; then
+  
   clear
   cd $HOME/yiimpool/install
 
+  # Load our functions.
   source functions.sh
+  
   # copy functions to /etc
   sudo cp -r functions.sh /etc/
   sudo cp -r editconf.py /usr/bin
   sudo chmod +x /usr/bin/editconf.py
 
   # Check system setup: Are we running as root on Ubuntu 16.04 on a
-  # machine with enough memory?
-  # If not, this shows an error and exits.
+  #
+  # -> machine with enough memory?
+  #
+  # -> If not, this shows an error and exits.
   source preflight.sh
 
   # Ensure Python reads/writes files in UTF-8. If the machine
@@ -58,10 +66,10 @@ if [[ ("$FIRST_TIME_SETUP" == "1") ]]; then
   # Are we running as root?
   if [[ $EUID -ne 0 ]]; then
     # Welcome
-    message_box "Yiimpool Installer v2.0" \
-    "Hello and thanks for using the Yiimpool Installer v2.0!
-    \n\nInstallation for the most part is fully automated. In most cases any user responses that are needed are asked prior to the installation.
-    \n\nNOTE: You should only install this on a brand new Ubuntu 16.04 or Ubuntu 18.04 installation."
+    message_box "Yiimpool Yiimp Installer! " \
+    "
+    \n\nInstallation for the most part is fully automated. The installer will asks for some input.
+    \n\nNOTE: You should only install this on a fresh installed Ubuntu 16.04 or Ubuntu 18.04 installation."
   	source existing_user.sh
     exit
     else
