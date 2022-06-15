@@ -3,17 +3,21 @@
 
 #########################################################
 # Source https://mailinabox.email/ https://github.com/mail-in-a-box/mailinabox
+#
 # Updated by afiniel-tech for yiimpool use...
+#
 # This script is intended to be ran from the yiimpool installer
 #########################################################
 
+# Tag version
 if [ -z "${TAG}" ]; then
 	TAG=v3.0
 fi
 
-# Clone the yiimpool repository if it doesn't exist.
-if [ ! -d $HOME/yiimpool/yiimp_single ]; then
+# Checks if single installer exist or not, else clone it.
+if [ ! -d "$HOME"/yiimpool/yiimp_single ]; then
 	echo Downloading yiimpool YiiMP Server Installer ${TAG}. . .
+	
 	git clone \
 		-b ${TAG} --depth 1 \
 		https://github.com/Afiniel-tech/yiimpool_yiimp_single \
@@ -23,13 +27,17 @@ if [ ! -d $HOME/yiimpool/yiimp_single ]; then
 	echo
 fi
 
-# Change directory to it.
+# move to yiimp_single directory  
 cd $HOME/yiimpool/yiimp_single
 
-# Update it.
-sudo chown -R $USER $HOME/yiimpool/install/.git/
-if [ "${TAG}" != `git describe --tags` ]; then
+# Makes sure it's clones TO $HOME/yiimpool/install      future create ROOT dir for it.
+sudo chown -R "$USER" "$HOME"/yiimpool/install/.git/
+
+# IF Tag is equal to Release Tag true; then 
+if [ "${TAG}" != "git describe --tags" ]; then
 	echo Updating yiimpool YiiMP Single Server Installer to ${TAG} . . .
+
+	# Else False;
 	git fetch --depth 1 --force --prune origin tag ${TAG}
 	if ! git checkout -q ${TAG}; then
 		echo "Update failed. Did you modify something in `pwd`?"
