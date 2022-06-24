@@ -9,12 +9,12 @@ cd ~/yiimpool/install
 clear
 
 # Welcome
-message_box "Yiimpool Installer Dev Branch " \
-"Hello and thanks for using the Yiimpool Installer Dev Branch!
+message_box "Yiimpool Installer v2.1 " \
+"Hello and thanks for using the Yiimpool Installer v2.1!
 \n\nInstallation for the most part is fully automated. In most cases any user responses that are needed are asked prior to the installation.
 \n\nNOTE: You should only install this on a brand new Ubuntu 16.04 or Ubuntu 18.04 installation."
 # Root warning message box
-message_box "Yiimpool Installer Dev Branch" \
+message_box "Yiimpool Installer v2.1" \
 "WARNING: You are trying to install as the root user!
 \n\nRunning any program as root is not recommended and can pose serious security risks that you want to avoid.
 \n\nThe next step you will be asked to create a new user account, you can name it whatever you want."

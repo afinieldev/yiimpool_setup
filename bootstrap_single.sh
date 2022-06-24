@@ -11,7 +11,7 @@
 
 # Tag version
 if [ -z "${TAG}" ]; then
-	TAG=v3.0
+	TAG=v2.1
 fi
 
 # Checks if single installer exist or not, else clone it.

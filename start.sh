@@ -106,7 +106,7 @@ clear
 	echo
 	echo "-----------------------------------------------"
 	echo
-	echo -e "$YELLOW Thank you for using the Yiimpool Installer $GREEN v3.0! $COL_RESET"
+	echo -e "$YELLOW Thank you for using the Yiimpool Installer $GREEN v2.1! $COL_RESET"
 	echo
 	echo -e "$YELLOW To run this installer anytime simply type: $GREEN yiimpool! $COL_RESET"
 	echo -e "$YELLOW Donations for continued support of this script are welcomed at: $COL_RESET"

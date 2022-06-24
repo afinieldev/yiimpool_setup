@@ -64,7 +64,7 @@ fi
 ARCHITECTURE=$(uname -m)
 if [ "$ARCHITECTURE" != "x86_64" ]; then
   if [ -z "$ARM" ]; then
-    echo "Yiimpool Installer v3.0 only supports x86_64 and will not work on any other architecture, like ARM or 32 bit OS."
+    echo "Yiimpool Installer v2.1 only supports x86_64 and will not work on any other architecture, like ARM or 32 bit OS."
     echo "Your architecture is $ARCHITECTURE"
     exit
   fi
