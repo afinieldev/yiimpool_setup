@@ -20,7 +20,7 @@ if [ ! -d "$HOME"/yiimpool/yiimp_single ]; then
 	
 	git clone \
 		-b ${TAG} --depth 1 \
-		https://github.com/Afiniel-tech/yiimpool_yiimp_single \
+		https://github.com/afinieldev/yiimpool_yiimp_single \
 		$HOME/yiimpool/yiimp_single \
 		< /dev/null 2> /dev/null
 
